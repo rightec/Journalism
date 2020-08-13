@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it"> 
+    <head>
+        <meta charset="UTF-8">
+        <title>Il giornale del mattino</title>
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/blocks.css">
+        <link rel="stylesheet" href="assets/css/mediaquery.css">
+    </head>
+    <body>
+        <header class="headerClass" id="headerHomeId">
+            <div class="menuHeader">
+                <!--Sezione che contiene il menù in orizzontale il box del search e la data-->
+                <aside class="allNewsBox">
+                    <button type="button" class="menuButton" id="allNewsBtnId">Tutte le notizie</button>
+                    <img id="allNewsArrowId" src="assets/img/menuArrow.png" alt="Apri le notizie">
+                </aside>
+                <aside class="main_nav_item">           
+                    <ul class="head_block" id="headBlockId">   
+                        <li class="menu_item"> <button type="button" class="menuButton">Cronaca nera</button></li>
+                        <li class="menu_item"> <button type="button" class="menuButton">Sport</button></li>
+                        <li class="menu_item"> <button type="button" class="menuButton">Esteri</button></li>
+                        <li class="menu_item"> <button type="button" class="menuButton">Gossip</button></li>
+                        <li class="menu_item"> <button type="button" class="menuButton">Politica</button></li>
+                    </ul>            
+                </aside>                    
+                <aside class="searchBox"><input type="text" placeholder="Search.."></aside>
+                <aside class="dataBox"><span>Data:</span><span id="datetime"></span></aside>
+            </div>
+        </header>
+
+        <footer class="footerClass" id="footerHomeId">FOOTER</footer>
+        <script  src="assets/js/datas.js"></script>
+        <script  src="assets/js/main.js"></script>
+    </body>
+</html>
+                

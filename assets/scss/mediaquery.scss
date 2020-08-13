@@ -1,0 +1,32 @@
+$btnFontSizeDesktop: x-large;
+
+@media only screen and (min-width: 769px) {
+    .menuButton {
+        font-size: $btnFontSizeDesktop;
+    }
+
+    .searchBox * {
+        font-size: $btnFontSizeDesktop;
+    }
+
+    .dataBox > span{
+        font-size: $btnFontSizeDesktop;
+        text-align: right;
+        margin-left: 12px;
+        width: 40%;
+    }
+
+    .dataBox {
+        margin-left: 45px;
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+
+}
+
+
+@media only screen and (min-width: 360px) and (max-width: 480px) {
+
+}

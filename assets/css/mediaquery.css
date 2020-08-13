@@ -1,0 +1,22 @@
+@media only screen and (min-width: 769px) {
+  .menuButton {
+    font-size: x-large;
+  }
+
+  .searchBox * {
+    font-size: x-large;
+  }
+
+  .dataBox > span {
+    font-size: x-large;
+    text-align: right;
+    margin-left: 12px;
+    width: 40%;
+  }
+
+  .dataBox {
+    margin-left: 45px;
+  }
+}
+
+/*# sourceMappingURL=mediaquery.css.map */

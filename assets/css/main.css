@@ -1,0 +1,43 @@
+
+/*Any elements*/
+* {
+    box-sizing: border-box;
+    
+}
+
+/*Classes */
+/*Elementi del menù */
+.head_block{
+    list-style-type: none
+}
+
+.head_block > li{
+    display: inline-block; /*Elements of the menu are INLINE*/
+}
+
+.menuHeader > aside {
+    display: inline-block; /*Elements of the header are INLINE*/
+}
+
+.headerClass{
+    background-color: gray;
+}
+
+.allNewsBox *{
+    display: inline-block;
+}
+
+.dataBox{
+    color: white;
+}
+
+
+/*Elements*/
+#allNewsArrowId{
+    vertical-align: bottom;
+}
+
+
+
+
+
