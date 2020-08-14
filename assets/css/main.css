@@ -44,6 +44,8 @@
 .advFrame{
     position: absolute;
     bottom: 0px;
+    height: 150px;
+    width: 200px;
 }
 
 .headerClass{
