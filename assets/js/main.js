@@ -4,9 +4,11 @@ let ul_item_buttons = ul_item.querySelectorAll('.menuButton');  //cerco i pulsan
 let buttonCnt =  ul_item_buttons.length;                        //Conto il numero di button trovati
 let categoryCheck = false;                                      //Segnala che il numero di categorie è diverso da quello previsto
 let gDate = new Date();                                         //Contiene la data
+let videoCounts = aVideos.length;
 
 //console.log(ul_item_buttons);
-console.log("Numero di pulsanti: ", buttonCnt);
+//console.log("Numero di video", videoCounts);
+//console.log("Numero di pulsanti: ", buttonCnt);
 
 if (buttonCnt == aCategories.length){
     //Il numero di pulsanti presente è uguale al numero di categorie ricevute dal back-end (simulato)
