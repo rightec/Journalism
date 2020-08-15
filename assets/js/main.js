@@ -18,11 +18,12 @@ function getMoreRecent(aDatas){
     let maxDataIndex = 0;
     for (let i=1; i<aDatas.length;i++){
         if (compData(aDatas[i]) > maxData){
-            maxData = aDatas[i];
+            maxData = compData(aDatas[i]);
             maxDataIndex = i;
+            console.log("maxData: ", maxData);
         }//else
     }//end for
-    console.log(aDatas);
+    console.log(aDatas[maxDataIndex]);
     aDatas[maxDataIndex]="00/00/0000"; //reset the max found
     console.log(aDatas);
     console.log(maxDataIndex);
@@ -40,11 +41,15 @@ let videoCounts = aVideos.length;
 let firstPlainArticle = -1;
 let secondtPlainArticle = -1;
 let firstMediaArticle = -1;
-let secondtMediaArticle = -1;
+let secondMediaArticle = -1;
 let aDate = new Array();
 let artSessions = document.getElementById("fullSessionId");
 let firstSession = artSessions.firstElementChild;
 let firstArticle = firstSession.firstElementChild;
+let thirdArticle = firstArticle.nextElementSibling;
+let secondSession = firstSession.nextElementSibling;
+let secondArticle = secondSession.firstElementChild;
+let fourthArticle = secondArticle.nextElementSibling;
 
 //console.log(firstSession);
 console.log(firstArticle);
@@ -58,13 +63,31 @@ for (let i=0; i<aTitles.length;i++){
 }
 //console.log(aTitles);
 
-console.log(aDate);
+//console.log(aDate);
 //The most recent article is the first to be showed
 firstPlainArticle = getMoreRecent(aDate);
 firstArticle.innerHTML="";
 firstArticle.innerHTML=`<h2>${aTitles[firstPlainArticle][0]}</h2>
 <img src=${aImages[firstPlainArticle]} alt="Image" width="320" height="240">
 <p>${aArticles[firstPlainArticle]}</p>`;
+
+secondPlainArticle = getMoreRecent(aDate);
+secondArticle.innerHTML="";
+secondArticle.innerHTML=`<h2>${aTitles[secondPlainArticle][0]}</h2>
+<img src=${aImages[secondPlainArticle]} alt="Image" width="320" height="240">
+<p>${aArticles[secondPlainArticle]}</p>`;
+
+firstMediaArticle = getMoreRecent(aDate);
+thirdArticle.innerHTML="";
+thirdArticle.innerHTML=`<h2>${aTitles[firstMediaArticle][0]}</h2>
+<iframe width="320" height="240"
+    src=${aVideos[firstMediaArticle]}>
+</iframe>`;
+
+secondMediaArticle = getMoreRecent(aDate);
+fourthArticle.innerHTML="";
+fourthArticle.innerHTML=`<h2>${aTitles[secondMediaArticle][0]}</h2>
+<img src=${aImages[secondMediaArticle]} alt="Image" width="320" height="240">`;
 
 
 //TRAVERSING 

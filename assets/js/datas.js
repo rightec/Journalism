@@ -16,16 +16,16 @@ let aTitles = [
 // I video disponibili
 let aVideos = [
     /* Link, */
-    ["https://www.youtube.com/watch?v=2CZGqGKP-rU&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z'"],
-    ["https://www.youtube.com/watch?v=rlWsgZUkBos&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z&index=2"],
-    ["https://www.youtube.com/watch?v=FBFZSevnmQs"],
-    ["https://www.youtube.com/watch?v=4kr-oidwlQc"],
-    ["https://www.youtube.com/watch?v=AhJ8Cl4EpOw"],
-    ["https://www.youtube.com/watch?v=yV5zIzlxflA"],
-    ["https://www.youtube.com/watch?v=shFvnjOmKBY"],
-    ["https://www.youtube.com/watch?v=6yWJ0EEkRDA"],
-    ["https://www.youtube.com/watch?v=AlQGM6J8HGM"],
-    ["https://www.youtube.com/watch?v=stQKrzsdGW0"]   
+    ["https://www.youtube.com/embed/2CZGqGKP-rU&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z"],
+    ["https://www.youtube.com/embed/rlWsgZUkBos&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z&index=2"],
+    ["https://www.youtube.com/embed/FBFZSevnmQs"],
+    ["https://www.youtube.com/embed/4kr-oidwlQc"],
+    ["https://www.youtube.com/embed/AhJ8Cl4EpOw"],
+    ["https://www.youtube.com/embed/yV5zIzlxflA"],
+    ["https://www.youtube.com/embed/shFvnjOmKBY"],
+    ["https://www.youtube.com/embed/6yWJ0EEkRDA"],
+    ["https://www.youtube.com/embed/AlQGM6J8HGM"],
+    ["https://www.youtube.com/embed/stQKrzsdGW0"]   
 ];
 //Immagini
 let aImages = [
