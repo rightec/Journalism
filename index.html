@@ -12,25 +12,24 @@
             <div class="menuHeader">
                 <!--Sezione che contiene il menù in orizzontale il box del search e la data-->
                 <aside class="allNewsBox">
-                    <button type="button" class="menuButton" id="allNewsBtnId">Tutte le notizie</button>
-                    <img id="allNewsArrowId" src="assets/img/menuArrow.png" alt="Apri le notizie">
+                    <button type="button" class="menuButton" id="allNewsBtnId" onclick="showDefault()">Tutte le notizie</button>
                 </aside>
                 <aside class="main_nav_item">           
                     <ul class="head_block" id="headBlockId">   
-                        <li class="menu_item"> <button type="button" class="menuButton">Cronaca nera</button></li>
-                        <li class="menu_item"> <button type="button" class="menuButton">Sport</button></li>
-                        <li class="menu_item"> <button type="button" class="menuButton">Esteri</button></li>
-                        <li class="menu_item"> <button type="button" class="menuButton">Gossip</button></li>
-                        <li class="menu_item"> <button type="button" class="menuButton">Politica</button></li>
+                        <li class="menu_item"> <button type="button" onclick="getCat_0()" class="menuButton">Cronaca nera</button></li>
+                        <li class="menu_item"> <button type="button" onclick="getCat_1()" class="menuButton">Sport</button></li>
+                        <li class="menu_item"> <button type="button" onclick="getCat_2()" class="menuButton">Esteri</button></li>
+                        <li class="menu_item"> <button type="button" onclick="getCat_3()" class="menuButton">Gossip</button></li>
+                        <li class="menu_item"> <button type="button" onclick="getCat_4()" class="menuButton">Politica</button></li>
                     </ul>            
                 </aside>                    
                 <aside class="searchBox"><input type="text" placeholder="Search.."></aside>
                 <aside class="dataBox"><span>Data:</span><span id="datetime"></span></aside>
             </div>
             <div class="titleAdv">
-                <iframe id="leftFrameId" class="advFrame" src="https://elisavetaefernandotango.it/" scrolling="no" ></iframe>
+                <iframe id="leftFrameId" class="advFrame" src="http://www.volturnomorani.it/" scrolling="no" ></iframe>
                 <h1>Il Giornale del mattino</h1>
-                <iframe id="rightFrameId" class="advFrame"src="https://elisavetaefernandotango.it/" scrolling="no" ></iframe>
+                <iframe id="rightFrameId" class="advFrame" src="http://www.volturnomorani.it/" scrolling="no" ></iframe>
             </div>
         </header>
         <div class="fullSession" id="fullSessionId">

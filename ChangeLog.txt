@@ -1,0 +1,6 @@
+# ChangeLog
+## [1.0.0] - 17-08-2020
+### Created
+Creata la versione 1.0.0 che realizza il sito con le varie categorie di argomenti 
+ed i filtri per selezionarli.
+

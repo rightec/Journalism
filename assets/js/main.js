@@ -30,6 +30,175 @@ function getMoreRecent(aDatas){
     return maxDataIndex;
 }
 
+function addPlainArticle(index, element)
+{
+    console.log("addPlain article index", index);
+    element.innerHTML+=`<section class="articleSession">
+    <article class="articleMedia">
+        <h2>${aTitles[index][cTitleIndex]}</h2>
+        <img src=${aImages[index]} alt="Image" width="320" height="240">
+        <p>${aArticles[index]}</p>
+    </article>
+</section>`;
+}
+
+function addVideoArticle(index, nodeToAdd){
+    nodeToAdd.innerHTML+=`<aside class="asideMedia">
+                    <h2>${aTitles[index][cTitleIndex]}</h2>
+                    <iframe width="320" height="240"
+                        src=${aVideos[index]}>
+                    </iframe>       
+                </aside>`;
+}
+
+function addImgArticle(index, element){
+    element.innerHTML+=`<aside class="asideMedia">
+    <h2>${aTitles[index][cTitleIndex]}</h2>
+    <img src=${aImages[index]} alt="Image" width="320" height="240">      
+</aside> `;               
+
+}
+
+function getCat(categIndex){
+    console.log("getCat 0");
+    const cPlainArticle = 0; //Identify a plain article (same as 2)
+    const cMediaVideoArticle = 1; //Identify a media Article with video
+    const cMediaImgArticle = 3; //Identify a media Article with Image
+    let articleOrder = -1;     //Last type of article built: Buid order is 0-1-2-3
+    let tempArticle = -1;      //Index of the article to display
+    let step_0_child = null;
+    let step_session = null;
+    let artSessChildNumb = 0;  //Store the number of session children
+
+    //Filtro sulla categoria
+    let aCateg = new Array();
+    for (let i=0; i<aTitles.length;i++){
+        if (aTitles[i][cCategIndex] == aCategories[categIndex]){
+            aCateg.push(aTitles[i]);
+            aCateg[aCateg.length-1].origIndex = i; //Salvo l'indice dell'array originale
+        }        
+    }
+
+    console.log(aCateg);
+
+    let aDate = new Array(); //Array per ordinare gli articoli
+    for (let i=0; i<aCateg.length;i++){
+        aDate.push(aCateg[i][cDateIndex]);
+    }
+
+    console.log(aDate);
+
+    //Cancella l'intera sessione
+    artSessions.innerHTML="";
+
+    //Per tutti gli elementi della categoria ordinati per data
+    for (let i=0; i<aCateg.length;i++){
+        //Select teh more recent
+        tempArticle = getMoreRecent(aDate);
+        switch (articleOrder){  
+            //State Machine         
+            case -1:
+                // execute for 0
+                articleOrder = 0;
+                addPlainArticle(aCateg[tempArticle].origIndex,artSessions); //Create the 1st child
+                step_0_child = artSessions.children[artSessChildNumb];  //position on the 1st child
+                step_session = artSessions.children[0];
+                console.log("step_0_child",step_0_child);
+                console.log("step_session",step_session);
+                break;
+            case 0:
+                // execute for 1
+                articleOrder = 1;
+                addVideoArticle(aCateg[tempArticle].origIndex, step_0_child);
+                console.log("step_0_child",step_0_child);
+                console.log("step_session",step_session);
+                break;
+            case 1:
+                // execute for 2
+                articleOrder = 2;
+                addPlainArticle(aCateg[tempArticle].origIndex,artSessions);
+                artSessChildNumb++; //A new session has been added
+                step_0_child = artSessions.children[artSessChildNumb];  //.nextElementSibling;  //position on the 1st child
+                console.log("step_0_child",step_0_child);
+                console.log("step_session",step_session);                
+                break;            
+            case 2:
+                // execute for 3
+                articleOrder = 3;
+                addImgArticle(aCateg[tempArticle].origIndex, step_0_child);
+                console.log("step_0_child",step_0_child);
+                console.log("step_session",step_session);                
+                break;            
+            case 3:
+                // execute for 0
+                articleOrder = 0;
+                addPlainArticle(aCateg[tempArticle].origIndex,artSessions);
+                artSessChildNumb++; //A new session has been added
+                step_0_child = artSessions.children[artSessChildNumb];  
+                console.log("step_0_child",step_0_child);
+                console.log("step_session",step_session);                
+                break;            
+            default:
+                //error
+                console.log("BLOCKING ERROR in switch case");
+                break;
+        }//end of switch
+    }//end of for
+    articleOrder = -1; //Reset the state machine
+}//end of function
+
+    
+
+function showDefault(){
+    let firstPlainArticle = -1;
+    let secondtPlainArticle = -1;
+    let firstMediaArticle = -1;
+    let secondMediaArticle = -1;
+    //const cDateIndex = 2;
+    
+
+    let aDate = new Array();
+    for (let i=0; i<aTitles.length;i++){
+        aDate.push(aTitles[i][cDateIndex]);
+    }
+//The most recent article is the first to be showed
+firstPlainArticle = getMoreRecent(aDate);
+secondPlainArticle = getMoreRecent(aDate);
+firstMediaArticle = getMoreRecent(aDate);
+secondMediaArticle = getMoreRecent(aDate);
+
+artSessions.innerHTML=`<section class="articleSession">
+<article class="articleMedia">
+<h2>${aTitles[firstPlainArticle][cTitleIndex]}</h2>
+<img src=${aImages[firstPlainArticle]} alt="Image" width="320" height="240">
+<p>${aArticles[firstPlainArticle]}</p>
+</article>
+
+<aside class="asideMedia">
+<h2>${aTitles[firstMediaArticle][cTitleIndex]}</h2>
+<iframe width="320" height="240"
+    src=${aVideos[firstMediaArticle]}>
+</iframe>      
+</aside>
+</section>
+<section class="articleSession">
+<article class="articleMedia">
+<h2>${aTitles[secondPlainArticle][cTitleIndex]}</h2>
+<img src=${aImages[secondPlainArticle]} alt="Image" width="320" height="240">
+<p>${aArticles[secondPlainArticle]}</p>
+</article>
+<aside class="asideMedia">
+<h2>${aTitles[secondMediaArticle][cTitleIndex]}</h2>
+<img src=${aImages[secondMediaArticle]} alt="Image" width="320" height="240">    
+</aside>                
+</section>`;
+}
+
+//Imposto le costanti
+const cTitleIndex = 0;
+const cCategIndex = 1;
+const cDateIndex = 2;
+
 
 //Imposto le variabili
 let ul_item = document.getElementById("headBlockId");           //Trovo l'elemento che contiene il menù
@@ -38,63 +207,8 @@ let buttonCnt =  ul_item_buttons.length;                        //Conto il numer
 let categoryCheck = false;                                      //Segnala che il numero di categorie è diverso da quello previsto
 let gDate = new Date();                                         //Contiene la data
 let videoCounts = aVideos.length;
-let firstPlainArticle = -1;
-let secondtPlainArticle = -1;
-let firstMediaArticle = -1;
-let secondMediaArticle = -1;
-let aDate = new Array();
 let artSessions = document.getElementById("fullSessionId");
-let firstSession = artSessions.firstElementChild;
-let firstArticle = firstSession.firstElementChild;
-let thirdArticle = firstArticle.nextElementSibling;
-let secondSession = firstSession.nextElementSibling;
-let secondArticle = secondSession.firstElementChild;
-let fourthArticle = secondArticle.nextElementSibling;
 
-//console.log(firstSession);
-console.log(firstArticle);
-
-//getElementsByClassName("articleSession");
-
-//console.log(artSessions);
-
-for (let i=0; i<aTitles.length;i++){
-    aDate.push(aTitles[i][2]);
-}
-//console.log(aTitles);
-
-//console.log(aDate);
-//The most recent article is the first to be showed
-firstPlainArticle = getMoreRecent(aDate);
-firstArticle.innerHTML="";
-firstArticle.innerHTML=`<h2>${aTitles[firstPlainArticle][0]}</h2>
-<img src=${aImages[firstPlainArticle]} alt="Image" width="320" height="240">
-<p>${aArticles[firstPlainArticle]}</p>`;
-
-secondPlainArticle = getMoreRecent(aDate);
-secondArticle.innerHTML="";
-secondArticle.innerHTML=`<h2>${aTitles[secondPlainArticle][0]}</h2>
-<img src=${aImages[secondPlainArticle]} alt="Image" width="320" height="240">
-<p>${aArticles[secondPlainArticle]}</p>`;
-
-firstMediaArticle = getMoreRecent(aDate);
-thirdArticle.innerHTML="";
-thirdArticle.innerHTML=`<h2>${aTitles[firstMediaArticle][0]}</h2>
-<iframe width="320" height="240"
-    src=${aVideos[firstMediaArticle]}>
-</iframe>`;
-
-secondMediaArticle = getMoreRecent(aDate);
-fourthArticle.innerHTML="";
-fourthArticle.innerHTML=`<h2>${aTitles[secondMediaArticle][0]}</h2>
-<img src=${aImages[secondMediaArticle]} alt="Image" width="320" height="240">`;
-
-
-//TRAVERSING 
-
-//console.log(ul_item_buttons);
-//console.log("Numero di video", videoCounts);
-//console.log("Numero di pulsanti: ", buttonCnt);
 
 if (buttonCnt == aCategories.length){
     //Il numero di pulsanti presente è uguale al numero di categorie ricevute dal back-end (simulato)
@@ -105,42 +219,13 @@ if (buttonCnt == aCategories.length){
 //Reset and rewrite - RISCRIVO IL MENU'
 ul_item.innerHTML=""; 
 for (let i=0; i<aCategories.length;i++){
+    let catFunction = "getCat(" + i +")";
     console.log(aCategories[i]);
-    ul_item.innerHTML+= `<li class="menu_item"> <button type="button" class="menuButton">${aCategories[i]} </button></li>`;
+    ul_item.innerHTML+= `<li class="menu_item"> <button type="button" onclick=${catFunction} class="menuButton">${aCategories[i]} </button></li>`;
 }
 
 //Assegna la data
 document.getElementById("datetime").innerHTML = gDate.toLocaleDateString();
 
-
-
-
-
-
-
-
-
-
-
-
-
-let myElement=document.body.lastElementChild.previousElementSibling;
-let idInterval=null;
-
-
-function hideElem()
-{
-    // console.log(window["myButton"]); //Uso dell'oggetto window
-    if (myElement.hidden == true){
-        myElement.hidden = false;
-    }else
-    {
-        myElement.hidden = true;
-    }
-}
-
-idInterval = setInterval(hideElem,1000);
-
-
-//clearInterval(idInterval); //Serve per terminare la setInterval
-
+//Visualizza il default, ovvero gli articoli più recenti indipendentemente dal tipo
+showDefault();

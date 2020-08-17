@@ -11,13 +11,16 @@ let aTitles = [
     ["Tancredi accusato di essere omofobo", "Gossip", "13/08/2020"],
     ["#GiuseppoloTropp e una vita al limite", "Gossip", "11/08/2020"],
     ["Bonus INPS - la politica trema", "Politica",  "11/08/2020"],
-    ["Tribuna Politica - la caccia", "Politica", "10/03/2010"]   
+    ["Tribuna Politica - la caccia", "Politica", "10/03/2010"] ,
+    ["Andrea Alongi alla vita in diretta", "Cronaca Nera", "09/07/2016"],
+    ["Il lato oscuro dell'universo","Cronaca Nera","20/11/2011"] ,
+    ["L'omicidio di Giulia Ballestri", "Cronaca Nera","22/04/2019"] 
 ];
 // I video disponibili
 let aVideos = [
     /* Link, */
     ["https://www.youtube.com/embed/2CZGqGKP-rU&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z"],
-    ["https://www.youtube.com/embed/rlWsgZUkBos&list=PLGsd1Dg26q-dRBDczbNpcyIV74pkHVB2Z&index=2"],
+    ["https://www.youtube.com/embed/rlWsgZUkBos?list=PL55B5828B9955852C"],
     ["https://www.youtube.com/embed/FBFZSevnmQs"],
     ["https://www.youtube.com/embed/4kr-oidwlQc"],
     ["https://www.youtube.com/embed/AhJ8Cl4EpOw"],
@@ -25,7 +28,10 @@ let aVideos = [
     ["https://www.youtube.com/embed/shFvnjOmKBY"],
     ["https://www.youtube.com/embed/6yWJ0EEkRDA"],
     ["https://www.youtube.com/embed/AlQGM6J8HGM"],
-    ["https://www.youtube.com/embed/stQKrzsdGW0"]   
+    ["https://www.youtube.com/embed/stQKrzsdGW0"],
+    ["https://www.youtube.com/embed/k4fc3_1aTqs?list=PLYNYPPKKOvrKkqjo3BvLfF50RzJsS-oh2"],
+    ["https://www.youtube.com/embed/e8pTSqeJluQ"],
+    ["https://www.youtube.com/embed/lNkZB2Iq-jE"]
 ];
 //Immagini
 let aImages = [
@@ -39,7 +45,10 @@ let aImages = [
     ["assets/img/Tancredi.jpg"],
     ["assets/img/giuseppolo.jpg"],
     ["assets/img/Tridico.jpg"],
-    ["assets/img/Tribuna.jpeg"]   
+    ["assets/img/Tribuna.jpg"],
+    ["assets/img/Alongi.jpg"],
+    ["assets/img/Balbi.jpg"],
+    ["assets/img/Balestri.jpg"]   
 ];
 //Testi
 let aArticles = [
@@ -53,5 +62,8 @@ let aArticles = [
     ["Il giudice Francesco Foti è stato chiamato ad esprimersi sul caso di un ragazzo omosessuale buttato fuori di casa dal padre proprio in ragione della sua omosessualità. Una storia come tante, ahinoi, che dal tribunale di Forum avrebbe potuto lanciare un messaggio chiaro di condanna ad ogni forma di omofobia, specialmente quella che si consuma in famiglia ai danni di figli e figlie spesso ancora minorenni. Del resto, ci sarà un motivo se lo scorso anno al Gay Village di Roma Barbara Palombelli, la conduttrice del programma, ha ricevuto un premio proprio per la sua trasmissione."],
     ["Chiara è una donna milanese di 41 anni, fa video su Youtube da circa 3 anni, inizialmente con il primo fidanzato “Giuseppolo” e ora con il nuovo fidanzato Davide.È entrata nel trash di Youtube quasi subito, per i suoi modi un po’ infantili, per la sua passione per il rosa e per Hello Kitty.L’estate scorsa è stata autrice di un vero e proprio scandalo: pare essersi inventata un’aggressione notturna da parte di ladri per giustificare la scomparsa dell’ex fidanzato.Ma cosa ancora più deprecabile si è inventata una gravidanza da questa persona e solo dopo mesi di conferme e smentite ha confessato la bugia.L’ex fidanzato ha effettuato una vera e propria fuga, sparendo da un giorno all’altro con la famosa scusa “vado a comprare le sigarette”.Da quel momento in poi la D’Alessandro è molto cambiata, da tutta rosa rosa, puccioso puccioso è diventata in qualche modo più scaltra, più calcolatrice, con la voglia di emergere su Youtube.Sembra rientrare all’interno di questa strategia anche l’amicizia con Follettina Creations che in pochi anni è diventata un fenomeno sul tubo. Sono molte le persone che non credono alla buona fede delle intenzioni di Chiara verso di lei."],
     ["Abbiamo seguito la legge. L'esigenza dell'Istituto era di pagare subito, perché il Paese era in emergenza, e poi controllare in un secondo momento. Abbiamo risposto in modo efficace in 15 giorni, predisponendo una misura che non esisteva.Lo ha detto il presidente dell'Inps Pasquale Tridico durante l'audizione informale, in diretta streaming, in commissione Lavoro della Camera sulle modalità di richiesta e liquidazione del bonus da 600 euro per le partite Iva durante l'emergenza coronavirus dopo la notizia, data da Repubblica, dei cinque parlamentari che lo hanno richiesto (di cui tre lo hanno anche incassato). Sono oltre duemila i politici coinvolti, tra legali e nazionali, ha detto Tridico."],
-    ["San Marino. In merito alla lettera aperta pubblicata oggi su un quotidiano sammarinese, riguardante la protesta di una residente di Fiorentino, sulla battuta di caccia al cinghiale dello scorso sabato 18 Novembre, l’Associazione Sammarinese Protezione Animali (APAS) ringrazia la cittadina che pubblicamente ha denunciato questa pratica, crudele, altamente rischiosa per l’incolumità delle persone, e inutile dal punto di vista del controllo della specie. Nell’ambito dell’Osservatorio della Fauna selvatica e relativi Habitat, l’APAS regolarmente sottolinea la propria contrarietà alla caccia agli ungulati nel nostro territorio e, riguardo al cinghiale, ha evidenziato l’estrema pericolosità di questa caccia che, svolta in un territorio urbanizzato diventa molto rischiosa per le persone. L’affissione di cartelli gialli di pericolo, distribuiti attorno al perimetro dell’area in cui avviene la battuta, non solo non risolve il problema della sicurezza, ma per timore di incidente, costringe le persone, come nel caso della cittadina denunciante a non uscire di casa, come se ci fosse in atto un vero e proprio coprifuoco! "]   
+    ["San Marino. In merito alla lettera aperta pubblicata oggi su un quotidiano sammarinese, riguardante la protesta di una residente di Fiorentino, sulla battuta di caccia al cinghiale dello scorso sabato 18 Novembre, l’Associazione Sammarinese Protezione Animali (APAS) ringrazia la cittadina che pubblicamente ha denunciato questa pratica, crudele, altamente rischiosa per l’incolumità delle persone, e inutile dal punto di vista del controllo della specie. Nell’ambito dell’Osservatorio della Fauna selvatica e relativi Habitat, l’APAS regolarmente sottolinea la propria contrarietà alla caccia agli ungulati nel nostro territorio e, riguardo al cinghiale, ha evidenziato l’estrema pericolosità di questa caccia che, svolta in un territorio urbanizzato diventa molto rischiosa per le persone. L’affissione di cartelli gialli di pericolo, distribuiti attorno al perimetro dell’area in cui avviene la battuta, non solo non risolve il problema della sicurezza, ma per timore di incidente, costringe le persone, come nel caso della cittadina denunciante a non uscire di casa, come se ci fosse in atto un vero e proprio coprifuoco! "],
+    ["Ricordate Andrea Alongi? La sua testimonianza durante il processo Bonsu di quasi dieci anni fa fece il giro del web. La sua sfacciataggine nell'affrontare giudici e pm mandata in onda da Un Giorno in Pretura lo trasformarono in un idolo della rete. Allora fu fermato per quelle che lui stesso definì «due canne». Testimoniò in merito al vicenda del giovane ghanese Emmanuel Bonsu, scambiato per uno spacciatore nel settembre 2008 al parco Falcone e Borsellino e arrestato illegalmente dopo essere stato pestato da una squadra di vigili. "],
+    ["Questo intervento si è tenuto l'8 ottobre 2011 all'interno del TEDxReggioEmilia. Una giornata di 19 mini-lectio magistralis sul tema Italia da esportazione, ovvero una serie di buoni motivi (e persone) per cui vale ancora la pena vivere nel nostro Paese. Una manifestazione curata da Riccardo Staglianò e organizzata da WW Lab (Laura Credidio, Alessandro Schiatti e Paolo Tegoni).Astrofisico, ricercatore all'Università di Roma Tor Vergata, Amedeo Balbi si occupa di problemi all'interfaccia tra la fisica fondamentale e la cosmologia; qui ci spiega il lato oscuro dell'Universo."],
+    ["Accanto al cadavere, a poca distanza dallo spigolo dove lui le aveva ripetutamente fatto battere la fronte, c'era uno degli incisivi di Giulia. L'altro, invece, era conficcato nella gola della donna, segno che lo aveva perso quando era ancora cosciente e capace di deglutire. È solo uno dei passaggi delle 188 pagine delle sentenza con cui la Corte d'Assise d'Appello di Bologna ha condannato all'ergastolo il dermatologo Matteo Cagnoni per l'omicidio della moglie Giulia Ballestri nel 2016."]  
 ];

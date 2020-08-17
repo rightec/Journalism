@@ -1,0 +1,48 @@
+NOTA 1 - URL DA YOUTUBE
+In questo progetto, i video di utilizzati sono stati presi da youtube.
+Poiché non viene usato un backend, i dati sono immagazzinati nel file data.js sottofroma di array
+L'array che contiene i video di fatto contiene le URL di tali video.
+Se si vogliono aggiungere altri video non bisogna copiare la URL dalla barra di indirizzi di youtube.
+Una URL così scritta genera l'errore:
+
+-------------------------------------------------------------------------------------------------------------------------------
+"Refused to display 'https://www.youtube.com/watch?v=6yWJ0EEkRDA' in a frame because it set 'X-Frame-Options' to 'sameorigin'"
+-------------------------------------------------------------------------------------------------------------------------------
+
+Con la conseguenza di non permettere la visualizzazione del video.
+Per inserire la stringa corretta occorre fare il seguente aggiustamento:
+
+-------------------------------------------------------------------------------------------------------------------------------
+Change your url https://www.youtube.com/watch?v=TTyFV-qhQtQ to https://www.youtube.com/embed/TTyFV-qhQtQ
+-------------------------------------------------------------------------------------------------------------------------------
+
+In alternativa cliccare sul video col tasto di destra su "Copia codice per l'incorporamento"
+Viene estratto il codice HTML che incorpora il video nel sito:
+
+-------------------------------------------------------------------------------------------------------------------------------
+<iframe width="871" height="490" src="https://www.youtube.com/embed/XPUNJcVF0zo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+-------------------------------------------------------------------------------------------------------------------------------
+
+Nel nostro caso, abbiamo usato solo la URL estratta dalla stringa sustante.
+
+NOTA 2 - DISPOSIZIONI DEGLI ARTICOLI
+A - Disposizione di default.
+Il layout della disposizione di default
+Essa corrisponde a cliccare su (TUTTO) e mostra i 4 articoli principali ordinati per data (i più recenti) e non per categoria.
+Gli articoli sono disposti su 2 colonne
+- Nella prima colonna vengono rappresentati il titolo, la foto e il testo
+- Nella seconda colonna viene rappresentato il titolo ed alternativamente o il video associato o l'immagine associata.
+
+B - Disposizione per categoria
+Vengono rappresentati tutti gli articoli di una categoria (nella versione 1.0.0 ci sono 5 articoli di cronaca nera e 2 di
+tutte le altre categorie
+Essi vengono rappresentati con la medesima idea tabellare su 2 colonne sopra spiegata
+
+
+NOTA 3 - HEADER
+Anche l'header (lista dei pulsanti) è componibile coi dati che vengono dal backend (simulato in questo caso dal file data.js). 
+Infatti le categorie sono dentro un array (nel file data.js) e possono essere modificate
+
+
+
