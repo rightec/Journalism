@@ -68,29 +68,17 @@
     margin-top: 10px;
 }
 
-.articleMedia{
-    vertical-align: top;
-    width: 74%;
-}
 
-.articleMedia > h2{
-    display: block;
-    margin-bottom: 0px;
-}
+
 
 .articleMedia > p{
     width: 65%;
     vertical-align: top;
 }
 
-.articleMedia > img{
-    width: 30%;
-}
 
 
-.asideMedia{
-    width: 25%;
-}
+
 
 /*Elements*/
 

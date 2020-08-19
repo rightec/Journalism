@@ -1,6 +1,14 @@
 $btnFontSizeDesktop: x-large;
+$breakpoint-tablet: 768px;
+$breakpoint-huawey: 360px;
+// File di riferimento scss
+//variabili da usare per la gestione delle width dell'Header
+$asideBlckAllWidth: 19%;
+$asideBlckMenuWidth: 40%;
+$asideBlckDataWidth: 10%;
+$asideBlckSearchWidth: 20%;
 
-@media only screen and (min-width: 769px) {
+@media (min-width: $breakpoint-tablet) {
     .menuButton {
         font-size: $btnFontSizeDesktop;
     }
@@ -20,13 +28,103 @@ $btnFontSizeDesktop: x-large;
         margin-left: 45px;
     }
 
+    .articleMedia > img{
+        width: 30%;
+    }
+
+    .articleMedia{
+        vertical-align: top;
+        width: 74%;
+    }
+
+    .articleMedia > h2{
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    .asideMedia{
+        width: 25%;
+    }
+
+    //Class
+    .allNewsBox{
+        width: $asideBlckAllWidth;
+    }
+
+    .main_nav_item{
+        width: $asideBlckMenuWidth;
+    }
+
+    .searchBox{
+        width: $asideBlckSearchWidth;
+    }
+
+    .dataBox{
+        width: $asideBlckDataWidth;
+    }
+    
+
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+/*
+@media (min-width: 481px) and (max-width: $breakpoint-tablet) {
 
 }
+*/
 
 
-@media only screen and (min-width: 360px) and (max-width: 480px) {
+@media (min-width: $breakpoint-huawey) and (max-width: 480px) {
+    
+    body{
+        //width: 100%;
+        .headerClass{
+            .menuHeader{
+                .main_nav_item{
+                    .head_block{
+                        padding: 0px;
+                    }
+                }
+            }
+            .titleAdv > iFrame{
+                display: none;
+            }
+            h1{
+                width: 280px;
+                border: 5px solid white;
+                margin: auto;
+            }
+        }
+        .fullSession {
+            background-color: white;
+            width: $breakpoint-huawey;
+            
+            .articleSession{ 
+                width: $breakpoint-huawey;    
+                
+                .articleMedia {
 
-}
+                    h2{
+                        margin-bottom: 1px;
+                        width: 320px;
+                    }//end h2
+
+                    img {
+                        //width: 100%;
+                    };
+
+                    p {
+                        width: 320px;
+                    };
+                }// end articleMedia
+                .asideMedia{
+                    iFrame{
+                        //width: 100%
+                    }
+                    img {
+                        //width: 100%;
+                    };
+                }
+            }// end articleSession
+        } //end fullSession  
+    }//end body
+}//end media huawey

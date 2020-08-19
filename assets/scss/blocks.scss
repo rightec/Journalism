@@ -1,26 +1,6 @@
-// File di riferimento scss
-//variabili da usare per la gestione delle width dell'Header
-$asideBlckAllWidth: 19%;
-$asideBlckMenuWidth: 40%;
-$asideBlckDataWidth: 10%;
-$asideBlckSearchWidth: 20%;
 
-//Class
-.allNewsBox{
-    width: $asideBlckAllWidth;
-}
 
-.main_nav_item{
-    width: $asideBlckMenuWidth;
-}
 
-.searchBox{
-    width: $asideBlckSearchWidth;
-}
-
-.dataBox{
-    width: $asideBlckDataWidth;
-}
 
 //Elements
 
