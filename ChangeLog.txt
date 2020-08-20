@@ -1,4 +1,7 @@
 # ChangeLog
+## [1.0.2] - 20-08-2020
+### Added
+Animazione pulsanti
 ## [1.0.1] - 19-08-2020
 ### Added
 Uso di scss per la realizzazione della versione per mobile (responsivness)
