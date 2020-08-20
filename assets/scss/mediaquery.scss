@@ -1,3 +1,16 @@
+@use  "objFunctions";
+@import "button";
+
+.rotate30 {
+    @include objFunctions.setTransform(rotate(30deg));
+}
+
+
+.menuButton {
+    @include simple-button;
+}
+
+
 $btnFontSizeDesktop: x-large;
 $breakpoint-tablet: 768px;
 $breakpoint-huawey: 360px;

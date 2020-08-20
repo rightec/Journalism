@@ -1,0 +1,5 @@
+@mixin setTransform ($propValue){
+    -webkit-transform: $propValue;
+    -ms-transform: $propValue;
+    transform: &$propValue;
+}

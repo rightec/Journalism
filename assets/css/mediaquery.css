@@ -1,3 +1,25 @@
+.rotate30 {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: .rotate30 rotate(30deg);
+}
+
+.menuButton {
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  color: black;
+  background: white;
+}
+.menuButton:hover {
+  transform: scale(1.03);
+}
+.menuButton:focus {
+  background-color: #f2f2f2;
+}
+.menuButton:active {
+  box-shadow: 3px 6px white;
+}
+
 @media (min-width: 768px) {
   .menuButton {
     font-size: x-large;
