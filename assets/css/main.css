@@ -24,6 +24,10 @@
     display: inline-block;
 }
 
+.allNewsShow *{
+    width: 100%;
+}
+
 .dataBox{
     color: white;
 }

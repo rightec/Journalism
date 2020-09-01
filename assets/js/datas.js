@@ -67,3 +67,5 @@ let aArticles = [
     ["Questo intervento si è tenuto l'8 ottobre 2011 all'interno del TEDxReggioEmilia. Una giornata di 19 mini-lectio magistralis sul tema Italia da esportazione, ovvero una serie di buoni motivi (e persone) per cui vale ancora la pena vivere nel nostro Paese. Una manifestazione curata da Riccardo Staglianò e organizzata da WW Lab (Laura Credidio, Alessandro Schiatti e Paolo Tegoni).Astrofisico, ricercatore all'Università di Roma Tor Vergata, Amedeo Balbi si occupa di problemi all'interfaccia tra la fisica fondamentale e la cosmologia; qui ci spiega il lato oscuro dell'Universo."],
     ["Accanto al cadavere, a poca distanza dallo spigolo dove lui le aveva ripetutamente fatto battere la fronte, c'era uno degli incisivi di Giulia. L'altro, invece, era conficcato nella gola della donna, segno che lo aveva perso quando era ancora cosciente e capace di deglutire. È solo uno dei passaggi delle 188 pagine delle sentenza con cui la Corte d'Assise d'Appello di Bologna ha condannato all'ergastolo il dermatologo Matteo Cagnoni per l'omicidio della moglie Giulia Ballestri nel 2016."]  
 ];
+
+const defViews = 4; //NUmber of article to show

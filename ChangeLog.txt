@@ -1,4 +1,10 @@
 # ChangeLog
+## [1.0.4] - 01-09-2020
+### Added
+Aggiunto blocco pulsante per azionare la visualizzazione completa o di default (FUNZIONE NON COMPLETA)
+## [1.0.3] - 01-09-2020
+### Modified
+la funzione ShowDefault è stata assorbita dalla funzione getCat()
 ## [1.0.2] - 20-08-2020
 ### Added
 Animazione pulsanti

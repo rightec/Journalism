@@ -73,6 +73,10 @@ function getCat(categIndex){
     let aCateg = new Array();
     let aDate = new Array(); //Array per ordinare gli articoli
 
+    let numbItemToShow = 0; //Numero di articoli da mostrare
+
+    console.log("actualView is",actualView);
+
     if (categIndex < aCategories.length){
         //Filtro sulla categoria
         for (let i=0; i<aTitles.length;i++){
@@ -82,7 +86,14 @@ function getCat(categIndex){
             }        
         }
 
-        for (let i=0; i<aCateg.length;i++){
+        if (actualView < aCateg.length){
+            numbItemToShow = actualView;
+        }else{
+            numbItemToShow = aCateg.length;
+        }
+
+
+        for (let i=0; i<numbItemToShow;i++){
             aDate.push(aCateg[i][cDateIndex]);
         }
     }else{
@@ -91,7 +102,14 @@ function getCat(categIndex){
             aCateg.push(aTitles[i]);
             aCateg[aCateg.length-1].origIndex = i; //Salvo l'indice dell'array originale                   
         }
-        for (let i=0; i<aCateg.length;i++){
+
+        if (actualView < aCateg.length){
+            numbItemToShow = actualView;
+        }else{
+            numbItemToShow = aCateg.length;
+        }
+
+        for (let i=0; i<numbItemToShow;i++){
             aDate.push(aCateg[i][cDateIndex]);
         }
     }//end if - default
@@ -104,7 +122,7 @@ function getCat(categIndex){
     artSessions.innerHTML="";
 
     //Per tutti gli elementi della categoria ordinati per data
-    for (let i=0; i<aCateg.length;i++){
+    for (let i=0; i<numbItemToShow;i++){
         //Select teh more recent
         tempArticle = getMoreRecent(aDate);
         switch (articleOrder){  
@@ -159,6 +177,16 @@ function getCat(categIndex){
     articleOrder = -1; //Reset the state machine
 }//end of function
 
+function hideContButton(hide){
+    let hideBtn = document.getElementById("allNewsBlockId");
+    if (hide == true){
+        //hide continue button
+        hideBtn.style.visibility = "hidden";
+    }else{
+        //show continue button
+        hideBtn.style.visibility = "visible";
+    }
+}
 
 
 //Imposto le costanti
@@ -175,7 +203,8 @@ let categoryCheck = false;                                      //Segnala che il
 let gDate = new Date();                                         //Contiene la data
 let videoCounts = aVideos.length;
 let artSessions = document.getElementById("fullSessionId");
-let allNewsButton = document.getElementById("allNewsBtnId");
+let allNewsButton = document.getElementById("allNewsBtnId");    //il button "continua"
+let actualView = defViews;                                      //NUmber of article to show
 
 
 if (buttonCnt == aCategories.length){
