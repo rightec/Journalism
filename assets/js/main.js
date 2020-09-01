@@ -60,7 +60,7 @@ function addImgArticle(index, element){
 }
 
 function getCat(categIndex){
-    console.log("getCat 0");
+    //console.log("getCat");
     const cPlainArticle = 0; //Identify a plain article (same as 2)
     const cMediaVideoArticle = 1; //Identify a media Article with video
     const cMediaImgArticle = 3; //Identify a media Article with Image
@@ -70,23 +70,35 @@ function getCat(categIndex){
     let step_session = null;
     let artSessChildNumb = 0;  //Store the number of session children
 
-    //Filtro sulla categoria
     let aCateg = new Array();
-    for (let i=0; i<aTitles.length;i++){
-        if (aTitles[i][cCategIndex] == aCategories[categIndex]){
+    let aDate = new Array(); //Array per ordinare gli articoli
+
+    if (categIndex < aCategories.length){
+        //Filtro sulla categoria
+        for (let i=0; i<aTitles.length;i++){
+            if (aTitles[i][cCategIndex] == aCategories[categIndex]){
+                aCateg.push(aTitles[i]);
+                aCateg[aCateg.length-1].origIndex = i; //Salvo l'indice dell'array originale
+            }        
+        }
+
+        for (let i=0; i<aCateg.length;i++){
+            aDate.push(aCateg[i][cDateIndex]);
+        }
+    }else{
+        //Tutti gli articoli
+        for (let i=0; i<aTitles.length;i++){            
             aCateg.push(aTitles[i]);
-            aCateg[aCateg.length-1].origIndex = i; //Salvo l'indice dell'array originale
-        }        
-    }
+            aCateg[aCateg.length-1].origIndex = i; //Salvo l'indice dell'array originale                   
+        }
+        for (let i=0; i<aCateg.length;i++){
+            aDate.push(aCateg[i][cDateIndex]);
+        }
+    }//end if - default
 
     console.log(aCateg);
-
-    let aDate = new Array(); //Array per ordinare gli articoli
-    for (let i=0; i<aCateg.length;i++){
-        aDate.push(aCateg[i][cDateIndex]);
-    }
-
     console.log(aDate);
+    
 
     //Cancella l'intera sessione
     artSessions.innerHTML="";
@@ -147,52 +159,7 @@ function getCat(categIndex){
     articleOrder = -1; //Reset the state machine
 }//end of function
 
-    
 
-function showDefault(){
-    let firstPlainArticle = -1;
-    let secondtPlainArticle = -1;
-    let firstMediaArticle = -1;
-    let secondMediaArticle = -1;
-    //const cDateIndex = 2;
-    
-
-    let aDate = new Array();
-    for (let i=0; i<aTitles.length;i++){
-        aDate.push(aTitles[i][cDateIndex]);
-    }
-//The most recent article is the first to be showed
-firstPlainArticle = getMoreRecent(aDate);
-secondPlainArticle = getMoreRecent(aDate);
-firstMediaArticle = getMoreRecent(aDate);
-secondMediaArticle = getMoreRecent(aDate);
-
-artSessions.innerHTML=`<section class="articleSession">
-<article class="articleMedia">
-<h2>${aTitles[firstPlainArticle][cTitleIndex]}</h2>
-<img src=${aImages[firstPlainArticle]} alt="Image" width="320" height="240">
-<p>${aArticles[firstPlainArticle]}</p>
-</article>
-
-<aside class="asideMedia">
-<h2>${aTitles[firstMediaArticle][cTitleIndex]}</h2>
-<iframe width="320" height="240"
-    src=${aVideos[firstMediaArticle]}>
-</iframe>      
-</aside>
-</section>
-<section class="articleSession">
-<article class="articleMedia">
-<h2>${aTitles[secondPlainArticle][cTitleIndex]}</h2>
-<img src=${aImages[secondPlainArticle]} alt="Image" width="320" height="240">
-<p>${aArticles[secondPlainArticle]}</p>
-</article>
-<aside class="asideMedia">
-<h2>${aTitles[secondMediaArticle][cTitleIndex]}</h2>
-<img src=${aImages[secondMediaArticle]} alt="Image" width="320" height="240">    
-</aside>                
-</section>`;
-}
 
 //Imposto le costanti
 const cTitleIndex = 0;
@@ -208,6 +175,7 @@ let categoryCheck = false;                                      //Segnala che il
 let gDate = new Date();                                         //Contiene la data
 let videoCounts = aVideos.length;
 let artSessions = document.getElementById("fullSessionId");
+let allNewsButton = document.getElementById("allNewsBtnId");
 
 
 if (buttonCnt == aCategories.length){
@@ -224,8 +192,10 @@ for (let i=0; i<aCategories.length;i++){
     ul_item.innerHTML+= `<li class="menu_item"> <button type="button" onclick=${catFunction} class="menuButton">${aCategories[i]} </button></li>`;
 }
 
+allNewsButton.outerHTML = `<button type="button" class="menuButton" id="allNewsBtnId" onclick="getCat(${aCategories.length})">Tutte le notizie</button>`;
+
 //Assegna la data
 document.getElementById("datetime").innerHTML = gDate.toLocaleDateString();
 
 //Visualizza il default, ovvero gli articoli più recenti indipendentemente dal tipo
-showDefault();
+getCat(aCategories.length); //Using the array lenght as parameter index means "use the default"
