@@ -77,6 +77,13 @@ function getCat(categIndex){
 
     console.log("actualView is",actualView);
 
+    if (currCategIndex != categIndex){
+        currCategIndex = categIndex; //aggiorna la categoria corrente
+        hideContButton(false); //riabilito il pulsante
+    }
+
+    console.log("Current categopry is", currCategIndex);
+
     if (categIndex < aCategories.length){
         //Filtro sulla categoria
         for (let i=0; i<aTitles.length;i++){
@@ -90,6 +97,7 @@ function getCat(categIndex){
             numbItemToShow = actualView;
         }else{
             numbItemToShow = aCateg.length;
+            forceContButtonHide();
         }
 
 
@@ -107,6 +115,7 @@ function getCat(categIndex){
             numbItemToShow = actualView;
         }else{
             numbItemToShow = aCateg.length;
+            forceContButtonHide();
         }
 
         for (let i=0; i<numbItemToShow;i++){
@@ -182,17 +191,30 @@ function hideContButton(hide){
     if (hide == true){
         //hide continue button
         hideBtn.style.visibility = "hidden";
+        actualView = cMaxArticleShow;
+        getCat(currCategIndex);
     }else{
         //show continue button
         hideBtn.style.visibility = "visible";
+        actualView = defViews; //set the default
     }
 }
 
+function forceContButtonVisib(){
+    let hideBtn = document.getElementById("allNewsBlockId");
+    hideBtn.style.visibility = "visible"; 
+}
+
+function forceContButtonHide(){
+    let hideBtn = document.getElementById("allNewsBlockId");
+    hideBtn.style.visibility = "hidden"; 
+}
 
 //Imposto le costanti
 const cTitleIndex = 0;
 const cCategIndex = 1;
 const cDateIndex = 2;
+const cMaxArticleShow = 1000;
 
 
 //Imposto le variabili
@@ -205,6 +227,7 @@ let videoCounts = aVideos.length;
 let artSessions = document.getElementById("fullSessionId");
 let allNewsButton = document.getElementById("allNewsBtnId");    //il button "continua"
 let actualView = defViews;                                      //NUmber of article to show
+let currCategIndex = -1;
 
 
 if (buttonCnt == aCategories.length){
