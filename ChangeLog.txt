@@ -1,4 +1,7 @@
 # ChangeLog
+## [1.0.6] - 02-09-2020
+### Added 
+Inserita animazione e collegata al pulsante "Continua"
 ## [1.0.5] - 02-09-2020
 ### Modified 
 Completata la funzione nascondi/visualizza articoli superiori al limite di default (4)
